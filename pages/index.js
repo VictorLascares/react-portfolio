@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { BsFillMoonFill } from "react-icons/bs";
+import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import {
   AiFillTwitterCircle,
   AiFillLinkedin,
@@ -19,21 +19,34 @@ import web6 from "../public/web6.png";
 import { useState } from "react";
 
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(false);
   return (
-    <div>
+    <div className={darkMode ? "dark" : ""}>
       <Head>
         <title>Victor Lascares | Portfolio</title>
         <meta name="description" content="My evidence portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="bg-white px-10 md:px-20 lg:px-40">
+      <main className="bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900">
         <section className="min-h-screen">
           <nav className="py-10 mb-12 flex justify-between">
-            <h1 className="text-xl font-burtons">Developedbyvl</h1>
+            <h1 className="text-xl font-burtons dark:text-gray-200">
+              Developedbyvl
+            </h1>
             <ul className="flex items-center">
               <li>
-                <BsFillMoonFill className="hover:cursor-pointer text-2xl" />
+                {darkMode ? (
+                  <BsFillSunFill
+                    onClick={() => setDarkMode(!darkMode)}
+                    className="hover:cursor-pointer text-2xl text-gray-200"
+                  />
+                ) : (
+                  <BsFillMoonFill
+                    onClick={() => setDarkMode(!darkMode)}
+                    className="hover:cursor-pointer text-2xl"
+                  />
+                )}
               </li>
               <li>
                 <a
@@ -49,8 +62,10 @@ export default function Home() {
             <h2 className="text-5xl py-2 text-purple-600 font-bold uppercase md:text-6xl">
               Victor Lascares
             </h2>
-            <h3 className="text-2xl py-2 md:text-3xl">Frontend Developer</h3>
-            <p className="text-md py-5 leading-8 text-gray-700 md:text-xl max-w-xl mx-auto">
+            <h3 className="text-2xl py-2 md:text-3xl dark:text-gray-200">
+              Frontend Developer
+            </h3>
+            <p className="text-md py-5 leading-8 text-gray-700 md:text-xl max-w-xl mx-auto dark:text-gray-500">
               Freelancer providing services for programming and design content
               needs. Join me down below and let's get cracking!
             </p>
@@ -67,21 +82,23 @@ export default function Home() {
 
         <section>
           <div>
-            <h3 className="text-3xl py-1">Services I offer</h3>
-            <p className="text-md py-2 leading-8 text-gray-700">
+            <h3 className="text-3xl py-1 dark:text-gray-200">
+              Services I offer
+            </h3>
+            <p className="text-md py-2 leading-8 text-gray-700 dark:text-gray-500">
               Since the beginning of my journey as a free developer, I've done
               remote work for<span className="text-purple-600"> agencies </span>
               consulted for<span className="text-purple-600"> startups </span>
               and collaborated with talented people to create digital products
               for both business and consumer use.
             </p>
-            <p className="text-md py-2 leading-8 text-gray-700">
+            <p className="text-md py-2 leading-8 text-gray-700 dark:text-gray-500">
               I offer from a wide range of services, including brand design,
               programming and teaching.
             </p>
           </div>
           <div className="lg:flex lg:gap-4">
-            <div className="text-center shadow-lg p-10 rounded-xl my-10">
+            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-gray-200">
               <Image src={Design} width={100} height={100} />
               <h3 className="text-lg font-medium pt-8 pb-2">
                 Beautiful Designs
@@ -95,7 +112,7 @@ export default function Home() {
               <p className="text-gray-700 py-1">Figma</p>
               <p className="text-gray-700 py-1">Gimp</p>
             </div>
-            <div className="text-center shadow-lg p-10 rounded-xl my-10">
+            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-gray-200">
               <Image src={Code} width={100} height={100} />
               <h3 className="text-lg font-medium pt-8 pb-2">
                 Beautiful Designs
@@ -109,7 +126,7 @@ export default function Home() {
               <p className="text-gray-700 py-1">Figma</p>
               <p className="text-gray-700 py-1">Gimp</p>
             </div>
-            <div className="text-center shadow-lg p-10 rounded-xl my-10">
+            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-gray-200">
               <Image src={Consulting} width={100} height={100} />
               <h3 className="text-lg font-medium pt-8 pb-2">
                 Beautiful Designs
@@ -127,15 +144,15 @@ export default function Home() {
         </section>
         <section>
           <div>
-            <h3 className="text-3xl py-1">Portfolio</h3>
-            <p className="text-md py-2 leading-8 text-gray-700">
+            <h3 className="text-3xl py-1 dark:text-gray-200">Portfolio</h3>
+            <p className="text-md py-2 leading-8 text-gray-700 dark:text-gray-500">
               Since the beginning of my journey as a free developer, I've done
               remote work for<span className="text-purple-600"> agencies </span>
               consulted for<span className="text-purple-600"> startups </span>
               and collaborated with talented people to create digital products
               for both business and consumer use.
             </p>
-            <p className="text-md py-2 leading-8 text-gray-700">
+            <p className="text-md py-2 leading-8 text-gray-700 dark:text-gray-500">
               I offer from a wide range of services, including brand design,
               programming and teaching.
             </p>
